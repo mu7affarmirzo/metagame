@@ -12,3 +12,4 @@ class UserUpdate(BaseModel):
     email: EmailStr = None
     password: str = None
 
+

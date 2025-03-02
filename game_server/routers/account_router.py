@@ -14,9 +14,9 @@ user_service = UserService()
 auth_service = AuthService()
 
 
-@router.post("/", response_model=UserResponse, status_code=status.HTTP_201_CREATED)
-def create_user(user: UserCreate, db: Session = Depends(get_db)):
-    return user_service.create_user(db=db, user_data=user)
+@router.post("/login", response_model=UserResponse, status_code=status.HTTP_201_CREATED)
+def login(user: UserCreate, db: Session = Depends(get_db)):
+    return auth_service.login(db=db, user_data=user)
 
 
 @router.get("/{user_id}", response_model=UserResponse)
